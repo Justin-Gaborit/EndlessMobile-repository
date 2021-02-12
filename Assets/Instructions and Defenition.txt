@@ -1,0 +1,101 @@
+              .7
+            .'/
+           / /
+          / /
+         / /
+        / /
+       / /
+      / /
+     / /         
+    / /          
+  __|/
+,-\__\
+|f-"Y\|
+\()7L/
+ cgD                            __ _
+ |\(       ________________   .'  Y '>,
+  \ \     | names bones,   | / _   _   \
+   \\\    | Mr. Bones!     | )(0) (0)(|}
+    \\\   |________________| {  4A   } /
+     \\\                      \uLuJJ/\l
+      \\\                     |3    p)/
+       \\\___ __________      /nnm_n//
+       c7___-__,__-)\,__)(".  \_>-<_/D
+                  //V     \_"-._.__G G_c__.-__<"/ ( \
+                         <"-._>__-,G_.___)\   \7\
+                        ("-.__.| \"<.__.-" )   \ \
+                        |"-.__"\  |"-.__.-".\   \ \
+                        ("-.__"". \"-.__.-".|    \_\
+                        \"-.__""|!|"-.__.-".)     \ \
+                         "-.__""\_|"-.__.-"./      \ l
+                          ".__""">G>-.__.-">       .--,_
+                              ""  G
+**************************************************************************************************************
+ Endless Mobile - Project Instructions - Justin Gaborit - 2/12/2021
+**************************************************************************************************************
+
+	Hey Tommy Bahama I wrote this file up for you as a quick reference you can use while programming.
+	This file just lists and outlines what different scripts from TUBER do and why I imported them in specific.
+	Just as an FYI, I actually only imported less than half the scripts from TUBER because most of them
+	are either slight variations of one another or not at all applicable to this app we're building.
+	What i'm actually doing here is just importing the scripts into seperate "TUBER SCRIPT" folders 
+	so that as we develop the app, we can pull stuff from them to rebuild new scripts in a way thats more
+	applicable to our mobile game.
+
+[The scripts and what they do]--------------------------------------------------------------------------------
+
+[CharacterControllerV2]---------------------------------------------------------------------------------------
+
+	This script controls player movement. Left, Right, Forward, Jumping and the speed the player 
+	does all of these things at. The original script is pretty badly made but the basics of it are usable.
+	for the new player script.
+
+[CharacterTriggerManager]-------------------------------------------------------------------------------------
+	
+	This script is more of a manager that connects whats going on with the player in game, and the events
+	taking place with the player. For example, this script manages the player colliding with different
+	objects and enemies and then administers some sort of feedback such as removing player HP or
+	administering special item pickup effects. In effect, anything that affects the player outside of
+	"CharacterControllerV2" usually will take place in this trigger manager script.
+
+[OrientationScript]-------------------------------------------------------------------------------------------
+
+	This script is the bread and butter of the game we're trying to develop here. The player
+	orientation script uses a raycast line pointing down from the center of the player and then applies
+	the angle of the surface it's hitting to the players rotation. This creates that TUBER effect of 
+	sticking to surfaces. (FYI I don't think the raycast system is programmed correctly but it works).
+	Baby will need some fixing.
+
+[PlayerAnimationHandler]--------------------------------------------------------------------------------------
+
+	This script works just like the "CharacterTriggerManager" but instead it affects the players 
+	animations by connecting to the "CharacterControllerV2" script and then checking what state
+	certain bools are in to run the proper animation.
+
+[MobMoveLeftRight]--------------------------------------------------------------------------------------------
+
+	This script uses aspects of the player orientation script to keep the mob it's applied to oriented
+	properly in the game. It also uses a random number generator to randomly choose if the mob moves
+	left or right horizontally. The direction the player moves is randomly generated on start.
+
+[Generation_Zone_1]-------------------------------------------------------------------------------------------
+
+	Standard procedural generation script I've told you about time and time again. Pulls prefab level
+	segments from recources and and loads them into an array. A random number is generated, that random 
+	number correlates to an array element holding a level segment prefab. If number 3 is generated, Level
+	segment 3 is loaded at a spawn loaction attached to the last level segment in the world.
+
+[Zone_1_SkyboxSet]--------------------------------------------------------------------------------------------
+
+	This script changes the fog color used to hide world generation. Its a trigger script that activates
+	on specific level segments used to transition from one biome to another. Not sure if we'll need it 
+	but I included it just in case.
+													      
+--------------------------------------------------------------------------------------------------------------
+
+	
+
+
+	
+	
+	
