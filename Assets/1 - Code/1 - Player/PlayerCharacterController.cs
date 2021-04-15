@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
 {   
-    public float _PlayerForwardSpeed;               //forward speed applied to the player
     public float _PlayerHorizontalSpeed;            //horizontal movement speed applied to the player
     public float _PlayerHorizontalSpeedMaximum;     //maximum horizontal speed the player can move at
 
@@ -14,7 +13,6 @@ public class PlayerCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         _PlayerisGrounded = true;                               //player is grounded by default
         _PlayerHorizontalSpeedMaximum = _PlayerHorizontalSpeed; //this is done to limit maximum horizontal travel speed
         _PlayerisJumping = false;                               //player is not jumping by default                               
@@ -35,8 +33,6 @@ public class PlayerCharacterController : MonoBehaviour
         {
             transform.Rotate(0, 0, 0);
         }
-
-        transform.position += new Vector3(0,0, _PlayerForwardSpeed * Time.deltaTime);
     }
 
     void FixedUpdate()
