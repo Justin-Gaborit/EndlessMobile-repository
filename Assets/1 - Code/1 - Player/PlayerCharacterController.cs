@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
-{   
+{
+
     public float _PlayerHorizontalSpeed;            //horizontal movement speed applied to the player
     public float _PlayerHorizontalSpeedMaximum;     //maximum horizontal speed the player can move at
 
+    public float _PlayerJumpTime = 0;
+
     public bool _PlayerisGrounded;                  //returns if the player is on the ground
-    public bool _PlayerisJumping;                   //returns if the player is in the air
 
     // Start is called before the first frame update
     void Start()
     {
         _PlayerisGrounded = true;                               //player is grounded by default
-        _PlayerHorizontalSpeedMaximum = _PlayerHorizontalSpeed; //this is done to limit maximum horizontal travel speed
-        _PlayerisJumping = false;                               //player is not jumping by default                               
+        _PlayerHorizontalSpeedMaximum = _PlayerHorizontalSpeed; //this is done to limit maximum horizontal travel speed                       
+    }
+
+    private void SetBoolBack()
+    {
+        _PlayerisGrounded = true;
     }
 
     // Update is called once per frame
@@ -32,6 +38,12 @@ public class PlayerCharacterController : MonoBehaviour
         else 
         {
             transform.Rotate(0, 0, 0);
+        }
+
+        if (Input.GetKey("space"))
+        {
+            _PlayerisGrounded = false;
+            Invoke("SetBoolBack", 1);
         }
     }
 
