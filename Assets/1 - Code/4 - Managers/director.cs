@@ -10,6 +10,9 @@ public class director : MonoBehaviour
     public GameObject playercamera;
     public GameObject startbutton;
     public GameObject settingsbutton;
+    public GameObject buttonright;
+    public GameObject buttonleft;
+    public TextMeshProUGUI scoretext;
     public TextMeshProUGUI galactatext;
     public TextMeshProUGUI runnertext;
 
@@ -18,6 +21,7 @@ public class director : MonoBehaviour
     public Animator settingsbutton_animation_manager;
     public Animator galactatext_animation_manager;
     public Animator runnertext_animation_manager;
+    public Animator scoretext_animation_manager;
 
     public int runspeed = 0;
 
@@ -29,6 +33,9 @@ public class director : MonoBehaviour
         settingsbutton_animation_manager.SetBool("game start", true);
         galactatext_animation_manager.SetBool("game start", true);
         runnertext_animation_manager.SetBool("game start", true);
+        scoretext_animation_manager.SetBool("game start", true);
+        buttonright.SetActive(true);
+        buttonleft.SetActive(true);
     }
 
     void Start()
@@ -38,6 +45,7 @@ public class director : MonoBehaviour
         settingsbutton_animation_manager = settingsbutton.GetComponent<Animator>();
         galactatext_animation_manager = galactatext.GetComponent<Animator>();
         runnertext_animation_manager = runnertext.GetComponent<Animator>();
+        scoretext_animation_manager = scoretext.GetComponent<Animator>();
     }
 
 

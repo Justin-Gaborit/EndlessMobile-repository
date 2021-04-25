@@ -8,26 +8,37 @@ public class PlayerCharacterController : MonoBehaviour
     public float _PlayerHorizontalSpeed;            //horizontal movement speed applied to the player
     public float _PlayerHorizontalSpeedMaximum;     //maximum horizontal speed the player can move at
 
-    public float _PlayerJumpTime = 0;
-
-    public bool _PlayerisGrounded;                  //returns if the player is on the ground
+    public bool _PlayerMovingRight;
+    public bool _PlayerMovingLeft;
 
     // Start is called before the first frame update
     void Start()
     {
-        _PlayerisGrounded = true;                               //player is grounded by default
+        _PlayerMovingRight = false;
+        _PlayerMovingLeft = false;
         _PlayerHorizontalSpeedMaximum = _PlayerHorizontalSpeed; //this is done to limit maximum horizontal travel speed                       
     }
 
-    private void SetBoolBack()
-    {
-        _PlayerisGrounded = true;
-    }
+    public void PointerRightDown() { _PlayerMovingRight = true; }
+    public void PointerRightUp() { _PlayerMovingRight = false; }
+
+    public void PointerLeftDown() { _PlayerMovingLeft = true; }
+    public void PointerLefttUp() { _PlayerMovingLeft = false; }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("right"))
+        if (_PlayerMovingRight)
+        {
+            transform.Rotate(0, 0, -_PlayerHorizontalSpeed * Time.deltaTime);
+        }
+
+        if (_PlayerMovingLeft)
+        {
+            transform.Rotate(0, 0, _PlayerHorizontalSpeed * Time.deltaTime);
+        }
+
+        /*if (Input.GetKey("right"))
         {
             transform.Rotate(0, 0, -_PlayerHorizontalSpeed * Time.deltaTime);
         }
@@ -44,7 +55,7 @@ public class PlayerCharacterController : MonoBehaviour
         {
             _PlayerisGrounded = false;
             Invoke("SetBoolBack", 1);
-        }
+        }*/
     }
 
     void FixedUpdate()

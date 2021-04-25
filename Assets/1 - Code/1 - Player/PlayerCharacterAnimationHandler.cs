@@ -17,7 +17,7 @@ public class PlayerCharacterAnimationHandler : MonoBehaviour
 
     void Update()
     {
-        if (PlayerParent.GetComponent<PlayerCharacterController>()._PlayerisGrounded == false)
+       /* if (PlayerParent.GetComponent<PlayerCharacterController>()._PlayerisGrounded == false)
         {
             PlayerAnimator.SetInteger("Condition_Jump", 1);
         }
@@ -26,5 +26,6 @@ public class PlayerCharacterAnimationHandler : MonoBehaviour
         {
            PlayerAnimator.SetInteger("Condition_Jump", 0);
         }
+       */
     }
 }
